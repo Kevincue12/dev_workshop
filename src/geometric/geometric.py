@@ -26,7 +26,7 @@ class Geometria:
             altura (float): Altura del rectángulo
             
         Returns:
-            float: Perímetro del rectángulo
+            float: Perímetro del r
         """
         pass
     
