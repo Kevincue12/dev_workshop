@@ -268,7 +268,7 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        pass
+        return round(math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2), 2)
     
     def punto_medio(self, x1, y1, x2, y2):
         """
@@ -283,7 +283,7 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        pass
+        return ((x1 + x2) / 2, (y1 + y2) / 2)
     
     def pendiente_recta(self, x1, y1, x2, y2):
         """
@@ -298,7 +298,9 @@ class Geometria:
         Returns:
             float: Pendiente de la recta
         """
-        pass
+        if x1 == x2:
+            raise ZeroDivisionError("La pendiente no está definida para una recta vertical")
+        return (y2 - y1) / (x2 - x1)
     
     def ecuacion_recta(self, x1, y1, x2, y2):
         """
@@ -313,7 +315,15 @@ class Geometria:
         Returns:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """
-        pass
+        if x1 == x2:  # Recta vertical
+            return (1, 0, -x1)  # x - x1 = 0 ⟹ 1x + 0y - x1 = 0
+        elif y1 == y2:  # Recta horizontal
+            return (0, 1, -y1)  # y - y1 = 0 ⟹ 0x + 1y - y1 = 0
+        else:
+            A = y2 - y1
+            B = x1 - x2
+            C = -(A * x1 + B * y1)
+            return (A, B, C)
     
     def area_poligono_regular(self, num_lados, lado, apotema):
         """
@@ -327,7 +337,9 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        pass
+        perimetro = num_lados * lado
+        return round((perimetro * apotema) / 2, 2)
+
     
     def perimetro_poligono_regular(self, num_lados, lado):
         """
