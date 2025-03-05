@@ -352,4 +352,7 @@ class Geometria:
         Returns:
             float: Perímetro del polígono regular
         """
-        pass
+        if num_lados < 3 or lado <= 0:
+            raise ValueError("El número de lados debe ser >= 3 y la longitud de los lados debe ser positiva.")
+    
+        return num_lados * lado
