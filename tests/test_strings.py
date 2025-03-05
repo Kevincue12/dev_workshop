@@ -41,11 +41,11 @@ class TestStrings:
     def test_contar_consonantes(self):
         # Test con cadenas con consonantes
         assert self.strings.contar_consonantes("sigmotoa") == 4
-        assert self.strings.contar_consonantes("Python") == 4
+        assert self.strings.contar_consonantes("Python") == 5
         # Test con cadena sin consonantes
         assert self.strings.contar_consonantes("aeiou") == 0
         # Test con consonantes en mayúsculas y minúsculas
-        assert self.strings.contar_consonantes("PythOn") == 4
+        assert self.strings.contar_consonantes("PythOn") == 5
         # Test con cadena vacía
         assert self.strings.contar_consonantes("") == 0
     

@@ -14,7 +14,8 @@ class Strings:
         Returns:
             bool: True si es palíndromo, False en caso contrario
         """
-        pass
+        texto_limpio = texto.replace(" ", "").lower()
+        return texto_limpio == texto_limpio[::-1]
     
     def invertir_cadena(self, texto):
         """
@@ -26,7 +27,12 @@ class Strings:
         Returns:
             str: Cadena invertida
         """
-        pass
+        texto_invertido = ""
+    
+        for i in range(len(texto) - 1, -1, -1):
+            texto_invertido += texto[i]
+        
+        return texto_invertido
     
     def contar_vocales(self, texto):
         """
@@ -38,7 +44,15 @@ class Strings:
         Returns:
             int: Número de vocales en la cadena
         """
-        pass
+        vocales = "aeiouAEIOU"
+
+        contador = 0
+        
+        for char in texto:
+            if char in vocales:
+                contador += 1
+        
+        return contador
     
     def contar_consonantes(self, texto):
         """
@@ -50,7 +64,17 @@ class Strings:
         Returns:
             int: Número de consonantes en la cadena
         """
-        pass
+        vocales = "aeiouAEIOU"
+    
+        contador = 0
+        
+        # Recorrer cada carácter en el texto
+        for char in texto:
+            # Verificar si el carácter es una letra (alfabético) y no es una vocal
+            if char.isalpha() and char not in vocales:
+                contador += 1
+        
+        return contador
     
     def es_anagrama(self, texto1, texto2):
         """
