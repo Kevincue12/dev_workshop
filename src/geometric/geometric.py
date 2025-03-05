@@ -1,3 +1,6 @@
+import math
+
+
 class Geometria:
     """
     Class with geometric exercises.
@@ -28,7 +31,7 @@ class Geometria:
         Returns:
             float: Perímetro del r
         """
-        pass
+        return 2 * (base + altura)
     
     def area_circulo(self, radio):
         """
@@ -40,7 +43,7 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        pass
+        return math.pi * (radio ** 2)
     
     def perimetro_circulo(self, radio):
         """
@@ -52,7 +55,7 @@ class Geometria:
         Returns:
             float: Perímetro del círculo
         """
-        pass
+        return 2 * math.pi * radio
     
     def area_triangulo(self, base, altura):
         """
@@ -65,7 +68,7 @@ class Geometria:
         Returns:
             float: Área del triángulo
         """
-        pass
+        return 0.5 * base * altura
     
     def perimetro_triangulo(self, lado1, lado2, lado3):
         """
@@ -79,7 +82,7 @@ class Geometria:
         Returns:
             float: Perímetro del triángulo
         """
-        pass
+        return lado1 + lado2 + lado3
     
     def es_triangulo_valido(self, lado1, lado2, lado3):
         """
@@ -95,7 +98,9 @@ class Geometria:
         Returns:
             bool: True si los lados pueden formar un triángulo, False en caso contrario
         """
-        pass
+        return (lado1 + lado2 > lado3) and \
+               (lado1 + lado3 > lado2) and \
+               (lado2 + lado3 > lado1)
     
     def area_trapecio(self, base_mayor, base_menor, altura):
         """
