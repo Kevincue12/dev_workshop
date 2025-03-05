@@ -67,10 +67,9 @@ class Strings:
         vocales = "aeiouAEIOU"
     
         contador = 0
-        
-        # Recorrer cada carácter en el texto
+
         for char in texto:
-            # Verificar si el carácter es una letra (alfabético) y no es una vocal
+
             if char.isalpha() and char not in vocales:
                 contador += 1
         
@@ -87,7 +86,10 @@ class Strings:
         Returns:
             bool: True si son anagramas, False en caso contrario
         """
-        pass
+        texto1_limpio = texto1.replace(" ", "").lower()
+        texto2_limpio = texto2.replace(" ", "").lower()
+
+        return sorted(texto1_limpio) == sorted(texto2_limpio)
     
     def contar_palabras(self, texto):
         """
@@ -99,7 +101,9 @@ class Strings:
         Returns:
             int: Número de palabras en la cadena
         """
-        pass
+        palabras = texto.split()
+    
+        return len(palabras)
     
     def palabras_mayus(self, texto):
         """
@@ -111,7 +115,7 @@ class Strings:
         Returns:
             str: Cadena con la primera letra de cada palabra en mayúscula
         """
-        pass
+        return texto.title()
     
     def eliminar_espacios_duplicados(self, texto):
         """
@@ -123,7 +127,10 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        pass
+        texto_ajustado = ' '.join(texto.split())
+        if texto.startswith(" ") and texto.endswith(" "):
+            return " " + texto_ajustado + " "
+        return texto_ajustado
     
     def es_numero_entero(self, texto):
         """
@@ -135,7 +142,18 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
-        pass
+        texto = texto.strip()
+        
+        # Verificar si la cadena es vacía o solo tiene un signo
+        if not texto or texto == "+" or texto == "-":
+            return False
+        
+        # Verificar si la cadena empieza con un signo y el resto son dígitos
+        if texto[0] in "+-" and texto[1:].isdigit():
+            return True
+        
+        # Verificar si toda la cadena está compuesta por dígitos
+        return texto.isdigit()
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
