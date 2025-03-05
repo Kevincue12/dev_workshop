@@ -208,6 +208,6 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        if not matriz:  # Verifica si la matriz está vacía
+        if not matriz:  
             return []
         return [[matriz[j][i] for j in range(len(matriz))] for i in range(len(matriz[0]))]
