@@ -166,8 +166,17 @@ class Strings:
         Returns:
             str: Cadena cifrada
         """
-        pass
+        resultado = ""
     
+        for char in texto:
+            if char.isalpha():
+                base = ord('A') if char.isupper() else ord('a')
+                resultado += chr((ord(char) - base + desplazamiento) % 26 + base)
+            else:
+                resultado += char
+                
+        return resultado
+        
     def descifrar_cesar(self, texto, desplazamiento):
         """
         Descifra una cadena cifrada con el método César.
@@ -179,7 +188,16 @@ class Strings:
         Returns:
             str: Cadena descifrada
         """
-        pass
+        resultado = ""
+    
+        for char in texto:
+            if char.isalpha(): 
+                base = ord('A') if char.isupper() else ord('a')
+                resultado += chr((ord(char) - base - desplazamiento) % 26 + base)
+            else:
+                resultado += char
+        
+        return resultado
     
     def encontrar_subcadena(self, texto, subcadena):
         """
@@ -192,4 +210,12 @@ class Strings:
         Returns:
             list: Lista con las posiciones iniciales de cada ocurrencia
         """
-        pass
+        posiciones = []
+        texto_len = len(texto)
+        subcadena_len = len(subcadena)
+        
+        for i in range(texto_len - subcadena_len + 1):
+            if texto[i:i+subcadena_len] == subcadena:
+                posiciones.append(i)
+        
+        return posiciones
